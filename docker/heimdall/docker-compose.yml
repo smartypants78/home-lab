@@ -9,6 +9,6 @@ services:
     volumes:
       - /srv/heimdall/config:/config
     ports:
-      - 9980:80
-      - 99443:443
+      - 8000:80
+      - 44300:443
     restart: unless-stopped
