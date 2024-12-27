@@ -1,1 +1,1 @@
-# home-server
+# home-lab
