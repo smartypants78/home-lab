@@ -11,5 +11,5 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /srv/sonarr/config:/config
-      - /media/external/tv:/movies #optional
+      - /media/external/tv:/tv #optional
       - /media/external/downloads:/downloads #optional
