@@ -3,8 +3,6 @@ services:
   wireguard:
     image: lscr.io/linuxserver/wireguard:latest
     container_name: wireguard
-    networks:
-      - wireguard-vpn
     cap_add:
       - NET_ADMIN
       - SYS_MODULE #optional
@@ -48,7 +46,3 @@ services:
       - /srv/qbittorrent/config:/config
       - /media/external/downloads:/downloads
     restart: unless-stopped
-
-networks:
-  wireguard-vpn:
-    name: wireguard-vpn
