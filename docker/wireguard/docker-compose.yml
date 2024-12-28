@@ -4,7 +4,7 @@ services:
     image: lscr.io/linuxserver/wireguard:latest
     container_name: wireguard
     networks:
-      - wireguard-bridge
+      - wireguard-vpn
     cap_add:
       - NET_ADMIN
       - SYS_MODULE #optional
@@ -33,5 +33,5 @@ services:
     restart: unless-stopped
 
 networks:
-  wireguard-bridge:
-    name: wireguard-bridge
+  wireguard-vpn:
+    name: wireguard-vpn
