@@ -9,7 +9,7 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /srv/radarr/config:/config
-      - /media/external:/movies #optional
+      - /media/external/movies:/movies #optional
       - /media/external/downloads:/downloads #optional
     ports:
       - 7878:7878
