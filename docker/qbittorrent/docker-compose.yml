@@ -12,7 +12,7 @@ services:
       - /srv/qbittorrent/config:/config
       - /media/external/downloads:/downloads #optional
     ports:
-      - 8081:8080
-    #  - 6881:6881
-    #  - 6881:6881/udp
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
     restart: unless-stopped
