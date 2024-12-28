@@ -1,0 +1,40 @@
+---
+services:
+  vpn:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8088:8088
+      - 54435:54435
+      - 54435:54435/udp # port generated in gluten/info/forwarded_port
+    volumes:
+      - /srv/gluetun:/gluetun
+      - /srv/gluetun/info:/tmp/gluetun
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - TZ=America/New_York
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      - VPN_PORT_FORWARDING=on
+      - VPN_PORT_FORWARDING_PROVIDER=protonvpn
+      - FIREWALL_OUTBOUND_SUBNETS=192.168.0.0/16 # Internal network
+  
+  torrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    restart: unless-stopped
+    network_mode: "service:vpn"
+    environment:
+      - WEBUI_PORT=8088
+      - TZ=Etc/UTC
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /srv/qbittorrent/config:/config
+      - /media/external/downloads:/downloads
+    depends_on:
+      - vpn
