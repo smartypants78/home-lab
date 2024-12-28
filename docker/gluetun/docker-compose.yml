@@ -1,0 +1,24 @@
+---
+services:
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8088:8088
+      - 35026:35026
+      - 35026:35026/udp # port generated in gluten/info/forwarded_port
+    volumes:
+      - /srv/gluetun:/gluetun
+      - /srv/gluetun/info:/tmp/gluetun
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - TZ=Etc/UTC
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      - VPN_PORT_FORWARDING=on
+      - VPN_PORT_FORWARDING_PROVIDER=protonvpn
+      - FIREWALL_OUTBOUND_SUBNETS=192.168.0.0/16 # Internal network
