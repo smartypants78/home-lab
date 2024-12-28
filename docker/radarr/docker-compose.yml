@@ -3,6 +3,8 @@ services:
   radarr:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
+    network_mode: container:gluetun
+    restart: unless-stopped
     environment:
       - PUID=1000
       - PGID=1000
@@ -11,6 +13,3 @@ services:
       - /srv/radarr/config:/config
       - /media/external/movies:/movies #optional
       - /media/external/downloads:/downloads #optional
-    ports:
-      - 7878:7878
-    restart: unless-stopped
