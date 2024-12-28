@@ -40,7 +40,7 @@ services:
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     ports:
-      - 6881:6881.tcp #qbittorrent
+      - 6881:6881/tcp #qbittorrent
       - 6881:6881/udp #qbittorrent
       - 8080:8080/tcp #qbittorrent
     volumes:
