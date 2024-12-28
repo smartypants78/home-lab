@@ -34,5 +34,4 @@ services:
 
 networks:
   wireguard-bridge:
-    external: true
     name: wireguard-bridge
