@@ -7,8 +7,8 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-      - 35026:35026
-      - 35026:35026/udp # port generated in gluten/info/forwarded_port
+      - 36944:36944
+      - 36944:36944/udp # port generated in gluten/info/forwarded_port
       - 8088:8088 # qbittorrent
       - 7878:7878 # radarr
       - 8989:8989 # sonarr
