@@ -1,0 +1,19 @@
+include:
+  - gluetun/docker-compose.yaml 
+  - qbittorrent/docker-compose.yaml 
+  - prowlarr/docker-compose.yaml 
+  - radarr/docker-compose.yaml 
+  - sonarr/docker-compose.yaml 
+services:
+  qbittorrent:
+    depends_on: 
+      - gluetun
+  prowlarr:
+    depends_on: 
+      - gluetun
+  radarr:
+    depends_on: 
+      - gluetun
+  sonarr:
+    depends_on: 
+      - gluetun
