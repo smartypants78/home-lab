@@ -1,15 +1,15 @@
 ---
 services:
-  qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
-    container_name: qbittorrent
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
     network_mode: container:gluetun
     restart: unless-stopped
     environment:
-      - WEBUI_PORT=8088
-      - TZ=Etc/UTC
       - PUID=1000
       - PGID=1000
+      - TZ=Etc/UTC
     volumes:
-      - /srv/qbittorrent/config:/config
-      - /media/external/downloads:/downloads
+      - /srv/radarr/config:/config
+      - /media/external/movies:/movies #optional
+      - /media/external/downloads:/downloads #optional
