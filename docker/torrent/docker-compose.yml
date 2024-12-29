@@ -10,9 +10,9 @@ services:
      - 35026:35026
      - 35026:35026/udp # port generated in gluten/info/forwarded_port
      - 8088:8088 # qbittorrent
+     - 9696:9696 # prowlarr
      - 7878:7878 # radarr
      - 8989:8989 # sonarr
-     - 9696:9696 # prowlarr
     volumes:
      - /srv/gluetun:/gluetun
      - /srv/gluetun/info:/tmp/gluetun
