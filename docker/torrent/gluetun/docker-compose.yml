@@ -7,8 +7,6 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-#      - 62055:62055
-#      - 62055:62055/udp # port generated in /srv/gluten/info/forwarded_port
       - 8088:8088 # qbittorrent
       - 7878:7878 # radarr
       - 8989:8989 # sonarr
