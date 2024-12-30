@@ -1,6 +1,6 @@
 docker compose -f ./gluetun/docker-compose.yml up -d
 
-echo "waiting for gluetun to respond as healthy"
+echo "Waiting for gluetun to respond as healthy"
 until [ "`docker inspect -f {{.State.Health.Status}} gluetun`"=="healthy" ]; do
     sleep 0.1;
 done;
