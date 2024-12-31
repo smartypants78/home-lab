@@ -1,8 +1,8 @@
 ---
 services:
-  radarr:
+  radarr-uhd:
     image: lscr.io/linuxserver/radarr:latest
-    container_name: radarr
+    container_name: radarr-uhd
     network_mode: container:gluetun
     restart: unless-stopped
     environment:
@@ -10,6 +10,20 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /srv/radarr/config:/config
-      - /media/external/movies:/movies #optional
+      - /srv/radarr-uhd/config:/config
+      - /media/external/movies-uhd:/movies #optional
+      - /media/external/downloads:/downloads #optional
+
+  radarr-hd:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-hd
+    network_mode: container:gluetun
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /srv/radarr-hd/config:/config
+      - /media/external/movies-hd:/movies #optional
       - /media/external/downloads:/downloads #optional

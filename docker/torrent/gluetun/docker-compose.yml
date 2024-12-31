@@ -8,8 +8,10 @@ services:
       - NET_ADMIN
     ports:
       - 8088:8088 # qbittorrent
-      - 7878:7878 # radarr
-      - 8989:8989 # sonarr
+      - 7877:7877 # radarr-uhd
+      - 7878:7878 # radarr-hd
+      - 8988:8988 # sonarr-uhd
+      - 8989:8989 # sonarr-hd
       - 9696:9696 # prowlarr
     volumes:
       - /srv/gluetun:/gluetun

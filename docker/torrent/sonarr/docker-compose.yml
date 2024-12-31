@@ -1,8 +1,8 @@
 ---
 services:
-  sonarr:
+  sonarr-uhd:
     image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
+    container_name: sonarr-uhd
     network_mode: container:gluetun
     restart: unless-stopped
     environment:
@@ -10,6 +10,20 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /srv/sonarr/config:/config
-      - /media/external/tv:/tv #optional
+      - /srv/sonarr-uhd/config:/config
+      - /media/external/tv-uhd:/tv #optional
+      - /media/external/downloads:/downloads #optional
+
+  sonarr-hd:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-hd
+    network_mode: container:gluetun
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /srv/sonarr-hd/config:/config
+      - /media/external/tv-hd:/tv #optional
       - /media/external/downloads:/downloads #optional
