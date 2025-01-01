@@ -1,1 +1,5 @@
 *.ignore
+docker/jellyfin-windows/srv/cache/*
+docker/jellyfin-windows/srv/config/*
+
+!.keep

@@ -1,0 +1,25 @@
+---
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: 1000:1000
+    ports:
+      - 8096:8096
+    volumes:
+      - ./srv/config:/config
+      - ./srv/cache:/cache
+      - type: bind
+        source: /e/media
+        target: /e/media
+    restart: 'unless-stopped'
+    environment:
+      - TZ=Europe/London
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
