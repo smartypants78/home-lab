@@ -1,5 +1,5 @@
 *.ignore
-docker/jellyfin-windows/srv/cache/*
-docker/jellyfin-windows/srv/config/*
+docker/jellyfin-gpu/srv/cache/*
+docker/jellyfin-gpu/srv/config/*
 
 !.keep
