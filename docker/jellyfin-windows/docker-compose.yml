@@ -10,8 +10,8 @@ services:
       - ./srv/config:/config
       - ./srv/cache:/cache
       - type: bind
-        source: /e/media
-        target: /e/media
+        source: /media
+        target: /media
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
