@@ -11,7 +11,7 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /srv/sonarr-uhd/config:/config
-      - /media/external/tv-uhd:/tv #optional
+      - /mnt/shared-media/media/tv-uhd:/tv #optional
       - /media/external/downloads:/downloads #optional
 
   sonarr-hd:
@@ -25,5 +25,5 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /srv/sonarr-hd/config:/config
-      - /media/external/tv-hd:/tv #optional
+      - /mnt/shared-media/media/tv-hd:/tv #optional
       - /media/external/downloads:/downloads #optional

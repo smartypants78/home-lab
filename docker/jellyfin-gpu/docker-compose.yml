@@ -7,10 +7,10 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - ./srv/config:/config
-      - ./srv/cache:/cache
+      - /srv/jellyfin/config:/config
+      - /srv/jellyfin/cache:/cache
       - type: bind
-        source: /media
+        source: /mnt/f/media
         target: /media
     restart: 'unless-stopped'
     environment:
