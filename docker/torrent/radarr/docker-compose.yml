@@ -13,7 +13,6 @@ services:
       - /srv/radarr-uhd/config:/config
       - /media/external/downloads:/downloads #optional
       - /media/external:/local-media #optional
-      - /mnt/shared-media/media:/shared-media #optional
 
   radarr-hd:
     image: lscr.io/linuxserver/radarr:latest
@@ -28,4 +27,3 @@ services:
       - /srv/radarr-hd/config:/config
       - /media/external/downloads:/downloads #optional
       - /media/external:/local-media #optional
-      - /mnt/shared-media/media:/shared-media #optional
