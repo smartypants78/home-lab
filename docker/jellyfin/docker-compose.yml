@@ -11,9 +11,6 @@ services:
       - type: bind
         source: /media
         target: /media
-      - type: bind
-        source: /mnt/shared-media/media
-        target: /shared-media
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
