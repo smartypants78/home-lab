@@ -11,6 +11,7 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /srv/radarr-uhd/config:/config
+      - /media/external/downloads:/downloads #optional
       - /media/external:/local-media #optional
       - /mnt/shared-media/media:/shared-media #optional
 
@@ -25,5 +26,6 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /srv/radarr-hd/config:/config
+      - /media/external/downloads:/downloads #optional
       - /media/external:/local-media #optional
       - /mnt/shared-media/media:/shared-media #optional
