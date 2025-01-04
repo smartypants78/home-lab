@@ -12,7 +12,7 @@ services:
     volumes:
       - /srv/sonarr-uhd/config:/config
       - /media/external/downloads:/downloads #optional
-      - /media/external:/local-media #optional
+      - /media:/local-media #optional
 
   sonarr-hd:
     image: lscr.io/linuxserver/sonarr:latest
@@ -26,4 +26,4 @@ services:
     volumes:
       - /srv/sonarr-hd/config:/config
       - /media/external/downloads:/downloads #optional
-      - /media/external:/local-media #optional
+      - /media:/local-media #optional

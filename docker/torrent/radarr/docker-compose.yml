@@ -12,7 +12,7 @@ services:
     volumes:
       - /srv/radarr-uhd/config:/config
       - /media/external/downloads:/downloads #optional
-      - /media/external:/local-media #optional
+      - /media:/local-media #optional
 
   radarr-hd:
     image: lscr.io/linuxserver/radarr:latest
@@ -26,4 +26,4 @@ services:
     volumes:
       - /srv/radarr-hd/config:/config
       - /media/external/downloads:/downloads #optional
-      - /media/external:/local-media #optional
+      - /media:/local-media #optional
