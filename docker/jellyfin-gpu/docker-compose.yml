@@ -8,9 +8,7 @@ services:
     volumes:
       - /srv/jellyfin/config:/config
       - /srv/jellyfin/cache:/cache
-      - type: bind
-        source: /mnt/e/media
-        target: /media
+      - media-share:/media:ro
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
@@ -24,3 +22,10 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+
+volumes:
+  media-share:
+    driver_opts:
+      type: cifs
+      o: username=ubuntu,password=ubuntu,domain=smartypants,vers=1.0
+      device: //192.168.68.63/media-share
