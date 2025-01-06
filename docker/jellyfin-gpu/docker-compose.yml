@@ -9,8 +9,8 @@ services:
       - /srv/jellyfin/config:/config
       - /srv/jellyfin/cache:/cache
       - type: bind
-        source: /mnt/
-        target: /media/e/media
+        source: /mnt/e/media
+        target: /media
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
