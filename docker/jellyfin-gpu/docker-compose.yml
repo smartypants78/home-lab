@@ -27,5 +27,5 @@ volumes:
   media-share:
     driver_opts:
       type: cifs
-      o: username=ubuntu,password=ubuntu,domain=smartypants,vers=1.0
+      o: "username=ubuntu,password=ubuntu,ro,uid=1000,gid=1000"
       device: //192.168.68.63/media-share
