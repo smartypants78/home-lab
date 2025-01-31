@@ -1,8 +1,8 @@
 ---
 services:
-  jellyseerr:
+  jellyseerr-uhd:
     image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
+    container_name: jellyseerr-uhd
     environment:
       - LOG_LEVEL=debug
       - TZ=Europe/London
@@ -10,5 +10,18 @@ services:
     ports:
       - 5055:5055
     volumes:
-      - /srv/jellyseerr/config:/app/config
+      - /srv/jellyseerr-uhd/config:/app/config
+    restart: unless-stopped
+
+  jellyseerr-hd:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr-hd
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/London
+      - PORT=5056 #optional
+    ports:
+      - 5056:5056
+    volumes:
+      - /srv/jellyseerr-hd/config:/app/config
     restart: unless-stopped
