@@ -9,6 +9,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - PORT=7877 #optional
     volumes:
       - /srv/radarr-uhd/config:/config
       - /media/external/downloads:/downloads #optional
@@ -23,6 +24,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - PORT=7878 #optional
     volumes:
       - /srv/radarr-hd/config:/config
       - /media/external/downloads:/downloads #optional

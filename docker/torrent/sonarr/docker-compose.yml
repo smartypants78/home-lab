@@ -9,6 +9,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - PORT=8988 #optional
     volumes:
       - /srv/sonarr-uhd/config:/config
       - /media/external/downloads:/downloads #optional
@@ -23,6 +24,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
+      - PORT=8989 #optional
     volumes:
       - /srv/sonarr-hd/config:/config
       - /media/external/downloads:/downloads #optional
