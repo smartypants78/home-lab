@@ -4,19 +4,18 @@ services:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
     user: 1000:1000
+    ports:
+      - 8096:8096
     group_add:
       - "993"
-    network_mode: host
     volumes:
       - /srv/jellyfin/config:/config
       - /srv/jellyfin/cache:/cache
-      - type: bind
-        source: /media
-        target: /media
+      - /media:/media
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
+#    extra_hosts:
+#      - 'host.docker.internal:host-gateway'
