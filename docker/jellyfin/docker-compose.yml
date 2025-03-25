@@ -17,5 +17,3 @@ services:
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
-#    extra_hosts:
-#      - 'host.docker.internal:host-gateway'
