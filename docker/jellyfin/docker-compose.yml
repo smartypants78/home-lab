@@ -4,6 +4,8 @@ services:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
     user: 1000:1000
+#    group_add:
+#      - "993"
     network_mode: host
     volumes:
       - /srv/jellyfin/config:/config
@@ -11,6 +13,8 @@ services:
       - type: bind
         source: /media
         target: /media
+#    devices:
+#      - /dev/dri/renderD128:/dev/dri/renderD128
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
