@@ -11,17 +11,18 @@ services:
       - MARIADB_DISABLE_UPGRADE_BACKUP=1
     env_file:
       - db.env
+    networks:
+      - nginx-proxy-manager
 
   redis:
     image: redis:alpine
     restart: always
+    networks:
+      - nginx-proxy-manager
 
   app:
     image: nextcloud:apache
     restart: always
-    ports:
-      - 127.0.0.1:8080:80
-      - 127.0.0.1:11000:11000
     volumes:
       - /srv/nextcloud/config/html:/var/www/html:z
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
@@ -33,6 +34,8 @@ services:
     depends_on:
       - db
       - redis
+    networks:
+      - nginx-proxy-manager
 
   cron:
     image: nextcloud:apache
@@ -44,3 +47,9 @@ services:
     depends_on:
       - db
       - redis
+    networks:
+      - nginx-proxy-manager
+
+networks:
+  nginx-proxy-manager:
+    external: true

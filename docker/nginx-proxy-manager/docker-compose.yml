@@ -11,3 +11,9 @@ services:
     volumes:
       - /srv/nginx-proxy-manager/data:/data
       - /srv/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+    networks:
+      - nginx-proxy-manager
+  
+networks:
+  nginx-proxy-manager:
+    driver: bridge
