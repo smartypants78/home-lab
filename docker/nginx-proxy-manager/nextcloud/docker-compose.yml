@@ -1,5 +1,5 @@
 services:
-  db:
+  nextcloud-db:
     image: mariadb:10.11
     command: --transaction-isolation=READ-COMMITTED
     restart: always
@@ -14,30 +14,30 @@ services:
     networks:
       - nginx-proxy-manager
 
-  redis:
+  nextcloud-redis:
     image: redis:alpine
     restart: always
     networks:
       - nginx-proxy-manager
 
-  app:
+  nextclound-app:
     image: nextcloud:apache
     restart: always
     volumes:
       - /srv/nextcloud/config/html:/var/www/html:z
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     environment:
-      - MYSQL_HOST=db
-      - REDIS_HOST=redis
+      - MYSQL_HOST=nextcloud-db
+      - REDIS_HOST=nextcloud-redis
     env_file:
       - db.env
     depends_on:
-      - db
-      - redis
+      - nextclouddb-db
+      - nextcloud-redis
     networks:
       - nginx-proxy-manager
 
-  cron:
+  nextcloud-cron:
     image: nextcloud:apache
     restart: always
     volumes:
@@ -45,8 +45,8 @@ services:
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     entrypoint: /cron.sh
     depends_on:
-      - db
-      - redis
+      - nextclouddb-db
+      - nextcloud-redis
     networks:
       - nginx-proxy-manager
 
