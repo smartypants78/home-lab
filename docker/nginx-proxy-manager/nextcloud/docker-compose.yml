@@ -32,7 +32,7 @@ services:
     env_file:
       - db.env
     depends_on:
-      - nextclouddb-db
+      - nextcloud-db
       - nextcloud-redis
     networks:
       - nginx-proxy-manager
@@ -45,7 +45,7 @@ services:
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     entrypoint: /cron.sh
     depends_on:
-      - nextclouddb-db
+      - nextcloud-db
       - nextcloud-redis
     networks:
       - nginx-proxy-manager
