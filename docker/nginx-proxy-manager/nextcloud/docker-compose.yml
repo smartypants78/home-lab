@@ -1,6 +1,7 @@
 services:
   nextcloud-db:
     image: mariadb:10.11
+    container_name: nextcloud-db
     command: --transaction-isolation=READ-COMMITTED
     restart: always
     volumes:
@@ -16,12 +17,14 @@ services:
 
   nextcloud-redis:
     image: redis:alpine
+    container_name: nextcloud-redis
     restart: always
     networks:
       - nginx-proxy-manager
 
   nextclound-app:
     image: nextcloud:apache
+    container_name: nextcloud-app
     restart: always
     volumes:
       - /srv/nextcloud/config/html:/var/www/html:z
@@ -40,6 +43,7 @@ services:
 
   nextcloud-cron:
     image: nextcloud:apache
+    container_name: nextcloud-cron
     restart: always
     volumes:
       - /srv/nextcloud/config/html:/var/www/html:z
