@@ -5,7 +5,7 @@ services:
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     restart: always
     volumes:
-      - /srv/nextcloud/config/mysql:/var/lib/mysql:Z
+      - /srv/nextcloud/mysql:/var/lib/mysql:Z
     environment:
       - MYSQL_ROOT_PASSWORD=ahx1Tho2
       - MARIADB_AUTO_UPGRADE=1
@@ -27,7 +27,7 @@ services:
     container_name: nextcloud-app
     restart: always
     volumes:
-      - /srv/nextcloud/config/html:/var/www/html:z
+      - /srv/nextcloud/html:/var/www/html:z
       #- /mnt/cloud/nextcloud:/var/www/html/data
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     environment:
@@ -46,7 +46,7 @@ services:
     container_name: nextcloud-cron
     restart: always
     volumes:
-      - /srv/nextcloud/config/html:/var/www/html:z
+      - /srv/nextcloud/html:/var/www/html:z
       #- /mnt/cloud/nextcloud:/var/www/html/data
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     entrypoint: /cron.sh
