@@ -26,6 +26,8 @@ services:
     image: nextcloud:apache
     container_name: nextcloud-app
     restart: always
+    ports:
+      - 127.0.0.1:8080:80
     volumes:
       - /srv/nextcloud/html:/var/www/html:z
       #- /mnt/cloud/nextcloud:/var/www/html/data
