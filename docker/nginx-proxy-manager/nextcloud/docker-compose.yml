@@ -40,8 +40,6 @@ services:
       - nextcloud-redis
     networks:
       - nginx-proxy-manager
-    ports:
-      - 8081:80
 
   nextcloud-cron:
     image: nextcloud:apache
