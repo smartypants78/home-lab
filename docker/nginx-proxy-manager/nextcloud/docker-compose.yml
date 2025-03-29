@@ -22,22 +22,6 @@ services:
     networks:
       - nginx-proxy-manager
 
-  collabora:
-      image: collabora/code:latest
-      container_name: collabora
-      restart: unless-stopped
-      networks: 
-        - nginx-proxy-manager
-      environment:
-        - PUID=1000
-        - PGID=1000
-        - password=Aishi0Go 
-        - username=nextcloud
-        - domain=nextcloud.smartypants.uk
-      #  - extra_params=--o:ssl.enable=true # Use if have ssl. You should.
-      ports:
-        - 9980:9980
-
   nextclound-app:
     image: nextcloud:apache
     container_name: nextcloud-app
