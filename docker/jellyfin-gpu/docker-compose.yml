@@ -9,7 +9,7 @@ services:
     volumes:
       - /srv/jellyfin/config:/config
       - /srv/jellyfin/cache:/cache
-      - media-share-two:/media:ro
+      - media-share:/media:ro
     restart: 'unless-stopped'
     environment:
       - TZ=Europe/London
@@ -23,8 +23,8 @@ services:
               capabilities: [gpu]
 
 volumes:
-  media-share-two:
+  media-share:
     driver_opts:
       type: cifs
       o: "username=ubuntu,password=ubuntu,ro,uid=1000,gid=1000"
-      device: //192.168.68.63/media-share-two
+      device: //192.168.68.63/media-share
