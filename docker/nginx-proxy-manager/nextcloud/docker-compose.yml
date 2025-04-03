@@ -84,6 +84,8 @@ services:
   collabora:
     container_name: nextcloud-collabora
     image: collabora/code:latest
+    cap_add: 
+     - MKNOD
     environment: 
      - domain=nextcloud.smartypants.uk
      - username=nextcloud
