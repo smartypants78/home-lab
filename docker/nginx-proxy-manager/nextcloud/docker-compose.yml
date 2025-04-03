@@ -10,6 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=ahx1Tho2
       - MARIADB_AUTO_UPGRADE=1
       - MARIADB_DISABLE_UPGRADE_BACKUP=1
+      - TZ=Europe/London
     env_file:
       - db.env
     networks:
@@ -35,6 +36,7 @@ services:
     environment:
       - MYSQL_HOST=nextcloud-db
       - REDIS_HOST=nextcloud-redis
+      - TZ=Europe/London
     env_file:
       - db.env
     depends_on:
@@ -51,6 +53,8 @@ services:
       - /srv/nextcloud/html:/var/www/html:z
       - /mnt/cloud/nextcloud/data:/var/www/html/data:z
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
+    environment:
+      - TZ=Europe/London
     entrypoint: /cron.sh
     depends_on:
       - nextcloud-db
@@ -72,6 +76,19 @@ services:
       - SIGNALING_SECRET=9d63bd1243561366f3a57a0568a8c18b8f1ad08d2e710eefd66d37c2f657ddca
       - TALK_PORT=3478
       - INTERNAL_SECRET=c2386978c6ca108f948e5f2e168bb177e8fd6c423e6815eb58a7f9e4d8ab585a
+      - TZ=Europe/London
+    restart: unless-stopped
+    networks:
+      - nginx-proxy-manager
+
+  collabora:
+    container_name: nextcloud-collabora
+    image: collabora/code:latest
+    environment: 
+     - domain=nextcloud.smartypants.uk
+     - username=nextcloud
+     - password=ua6cheoZ
+     - TZ=Europe/London
     restart: unless-stopped
     networks:
       - nginx-proxy-manager
