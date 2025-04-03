@@ -19,6 +19,8 @@ services:
     image: redis:alpine
     container_name: nextcloud-redis
     restart: unless-stopped
+    volumes:
+      - /srv/nextcloud/redis/data:/data:z
     networks:
       - nginx-proxy-manager
 
@@ -28,7 +30,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/nextcloud/html:/var/www/html:z
-      - /mnt/cloud/nextcloud/data:/var/www/html/data
+      - /mnt/cloud/nextcloud/data:/var/www/html/data:z
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     environment:
       - MYSQL_HOST=nextcloud-db
@@ -47,7 +49,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/nextcloud/html:/var/www/html:z
-      - /mnt/cloud/nextcloud/data:/var/www/html/data
+      - /mnt/cloud/nextcloud/data:/var/www/html/data:z
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     entrypoint: /cron.sh
     depends_on:
