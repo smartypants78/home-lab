@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/nextcloud/html:/var/www/html:z
-      #- /mnt/cloud/nextcloud/data:/var/www/html/data
+      - /mnt/cloud/nextcloud/data:/var/www/html/data
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     environment:
       - MYSQL_HOST=nextcloud-db
@@ -47,7 +47,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/nextcloud/html:/var/www/html:z
-      #- /mnt/cloud/nextcloud/data:/var/www/html/data
+      - /mnt/cloud/nextcloud/data:/var/www/html/data
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
     entrypoint: /cron.sh
     depends_on:
