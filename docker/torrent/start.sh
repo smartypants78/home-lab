@@ -9,3 +9,5 @@ docker compose -f ./qbittorrent/docker-compose.yml up -d
 docker compose -f ./prowlarr/docker-compose.yml up -d
 docker compose -f ./radarr/docker-compose.yml up -d
 docker compose -f ./sonarr/docker-compose.yml up -d
+docker compose -f ./lidarr/docker-compose.yml up -d
+docker compose -f ./readarr/docker-compose.yml up -d

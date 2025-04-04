@@ -17,3 +17,9 @@ docker compose -f ./radarr/docker-compose.yml up -d
 
 docker compose -f ./sonarr/docker-compose.yml pull
 docker compose -f ./sonarr/docker-compose.yml up -d
+
+docker compose -f ./lidarr/docker-compose.yml pull
+docker compose -f ./lidarr/docker-compose.yml up -d
+
+docker compose -f ./readarr/docker-compose.yml pull
+docker compose -f ./readarr/docker-compose.yml up -d
