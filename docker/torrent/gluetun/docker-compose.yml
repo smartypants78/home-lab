@@ -12,6 +12,7 @@ services:
       - 7878:7878 # radarr-hd
       - 8988:8988 # sonarr-uhd
       - 8989:8989 # sonarr-hd
+      - 8686:8686 # lidarr
       - 9696:9696 # prowlarr
     volumes:
       - /srv/gluetun:/gluetun
