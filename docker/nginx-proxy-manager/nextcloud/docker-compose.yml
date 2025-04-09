@@ -62,24 +62,24 @@ services:
     networks:
       - nginx-proxy-manager
 
-  nextcloud-talk-hpb:
-    container_name: nextcloud-talk-hpb
-    image: nextcloud/aio-talk:latest
-    init: true
-    ports:
-      - 3478:3478/tcp
-      - 3478:3478/udp
-    environment:
-      - NC_DOMAIN=nextcloud.smartypants.uk
-      - TALK_HOST=signal.smartypants.uk
-      - TURN_SECRET=4c35c39409e5f2eaf6325838d3f8d4aded167ff1d1e28f746d36cffe07ff02bf
-      - SIGNALING_SECRET=9d63bd1243561366f3a57a0568a8c18b8f1ad08d2e710eefd66d37c2f657ddca
-      - TALK_PORT=3478
-      - INTERNAL_SECRET=c2386978c6ca108f948e5f2e168bb177e8fd6c423e6815eb58a7f9e4d8ab585a
-      - TZ=Europe/London
-    restart: unless-stopped
-    networks:
-      - nginx-proxy-manager
+#  nextcloud-talk-hpb:
+#    container_name: nextcloud-talk-hpb
+#    image: nextcloud/aio-talk:latest
+#    init: true
+#    ports:
+#      - 3478:3478/tcp
+#      - 3478:3478/udp
+#    environment:
+#      - NC_DOMAIN=nextcloud.smartypants.uk
+#      - TALK_HOST=signal.smartypants.uk
+#      - TURN_SECRET=4c35c39409e5f2eaf6325838d3f8d4aded167ff1d1e28f746d36cffe07ff02bf
+#      - SIGNALING_SECRET=9d63bd1243561366f3a57a0568a8c18b8f1ad08d2e710eefd66d37c2f657ddca
+#      - TALK_PORT=3478
+#      - INTERNAL_SECRET=c2386978c6ca108f948e5f2e168bb177e8fd6c423e6815eb58a7f9e4d8ab585a
+#      - TZ=Europe/London
+#    restart: unless-stopped
+#    networks:
+#      - nginx-proxy-manager
 
   collabora:
     container_name: nextcloud-collabora
