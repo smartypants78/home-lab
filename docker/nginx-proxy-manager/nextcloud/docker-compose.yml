@@ -33,8 +33,6 @@ services:
       - /srv/nextcloud/html:/var/www/html:z
       - /mnt/cloud/nextcloud/data:/var/www/html/data:z
       # NOTE: The `volumes` config of the `cron` and `app` containers must match
-    ports:
-      - 8001:80
     environment:
       - MYSQL_HOST=nextcloud-db
       - REDIS_HOST=nextcloud-redis
