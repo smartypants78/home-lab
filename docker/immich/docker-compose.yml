@@ -46,7 +46,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'  
+          cpus: '2'  
     volumes:
       - model-cache:/cache
     env_file:
