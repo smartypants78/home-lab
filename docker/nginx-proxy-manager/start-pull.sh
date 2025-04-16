@@ -6,5 +6,5 @@ until [ "`docker inspect -f {{.State.Health.Status}} nginx-proxy-manager`"=="hea
     sleep 0.1;
 done;
 
-docker compose -f ./nextclouddocker-compose.yml pull
+docker compose -f ./nextcloud/docker-compose.yml pull
 docker compose -f ./nextcloud/docker-compose.yml up -d
