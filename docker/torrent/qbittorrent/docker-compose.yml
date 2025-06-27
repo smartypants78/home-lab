@@ -1,7 +1,7 @@
 ---
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
+    image: lscr.io/linuxserver/qbittorrent:5.1.0
     container_name: qbittorrent
     network_mode: container:gluetun
     restart: unless-stopped
