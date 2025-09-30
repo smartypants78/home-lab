@@ -97,16 +97,16 @@ services:
       - nginx-proxy-manager
 
   nextcloud-dsp:
-    image: ghcr.io/nextcloud/nextcloud-appapi-dsp:release
     container_name: nextcloud-appapi-dsp
+    image: ghcr.io/nextcloud/nextcloud-appapi-dsp:release
     hostname: nextcloud-appapi-dsp # Equivalent to the -h flag
-    restart: unless-stopped
     privileged: true # Equivalent to the --privileged flag
     environment:
       - NC_HAPROXY_PASSWORD=eis4Avie
     volumes:
       # Mount the Docker socket from the host to the container
       - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
     networks:
       - nginx-proxy-manager
 
