@@ -107,8 +107,6 @@ services:
       # Mount the Docker socket from the host to the container
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-    networks:
-      - nginx-proxy-manager
 
 networks:
   nginx-proxy-manager:
