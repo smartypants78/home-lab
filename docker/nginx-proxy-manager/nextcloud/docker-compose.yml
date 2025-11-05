@@ -81,20 +81,20 @@ services:
 #    networks:
 #      - nginx-proxy-manager
 
-#  collabora:
-#    container_name: nextcloud-collabora
-#    image: collabora/code:latest
-#    cap_add: 
-#     - MKNOD
-#    environment: 
-#     - domain=nextcloud.smartypants.uk
-#     - username=nextcloud
-#     - password=ua6cheoZ
-#     - TZ=Europe/London
-#     - extra_params=--o:ssl.enable=true
-#    restart: unless-stopped
-#    networks:
-#      - nginx-proxy-manager
+  collabora:
+    container_name: nextcloud-collabora
+    image: collabora/code:latest
+    cap_add: 
+     - MKNOD
+    environment: 
+     - domain=nextcloud.smartypants.uk
+     - username=nextcloud
+     - password=ua6cheoZ
+     - TZ=Europe/London
+     - extra_params=--o:ssl.enable=true
+    restart: unless-stopped
+    networks:
+      - nginx-proxy-manager
 
   nextcloud-dsp:
     container_name: nextcloud-appapi-dsp
