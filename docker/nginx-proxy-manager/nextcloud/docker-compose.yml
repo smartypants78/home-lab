@@ -105,7 +105,7 @@ services:
       - NC_HAPROXY_PASSWORD=eis4Avie
     volumes:
       # Mount the Docker socket from the host to the container
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
     networks:
       - nginx-proxy-manager
