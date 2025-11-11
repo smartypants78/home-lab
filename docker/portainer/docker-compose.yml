@@ -3,8 +3,8 @@ services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
-    ports:
-      - 9000:9000
+    #ports:
+    #  - 9000:9000
     network_mode: host
     volumes:
       - /srv/portainer/data:/data
