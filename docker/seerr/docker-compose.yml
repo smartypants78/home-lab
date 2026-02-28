@@ -1,0 +1,41 @@
+---
+services:
+  seerr-uhd:
+    image: ghcr.io/seerr-team/seerr:latest
+    init: true
+    container_name: seerr-uhd
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/London
+      - PORT=5055 #optional
+    ports:
+      - 5055:5055
+    volumes:
+      - /srv/seerr-uhd/config:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/status || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
+    restart: unless-stopped
+
+  seerr-hd:
+    image: ghcr.io/seerr-team/seerr:latest
+    init: true
+    container_name: seerr-hd
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/London
+      - PORT=5056 #optional
+    ports:
+      - 5056:5056
+    volumes:
+      - /srv/seerr-hd/config:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5056/api/v1/status || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
+    restart: unless-stopped
