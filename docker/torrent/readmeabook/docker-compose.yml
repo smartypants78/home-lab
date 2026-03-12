@@ -1,0 +1,13 @@
+services:
+  readmeabook:
+    image: ghcr.io/kikootwo/readmeabook:latest
+    container_name: readmeabook
+    network_mode: container:gluetun
+    restart: unless-stopped
+    volumes:
+      - /srv/readmeabook/config:/app/config
+      - /srv/readmeabook/cache:/app/cache
+      - /media/external/downloads:/downloads        # Your download client's path
+      - /media:/media                               # Your audiobook library
+      - ./pgdata:/var/lib/postgresql/data
+      - ./redis:/var/lib/redis

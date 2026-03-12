@@ -15,6 +15,7 @@ services:
       - 8686:8686 # lidarr
       - 8787:8787 # readarr
       - 9696:9696 # prowlarr
+      - 3030:3030 # readmeabook
     volumes:
       - /srv/gluetun:/gluetun
       - /srv/gluetun/info:/tmp/gluetun
