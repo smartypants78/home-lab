@@ -6,8 +6,7 @@ services:
       - 13378:80
     restart: unless-stopped
     volumes:
-      - /media/external2/audiobooks:/audiobooks
-      - /media/external2/podcasts:/podcasts
+      - /media:/media
       - /srv/audiobookshelf/config:/config
       - /srv/audiobookshelf/metadata:/metadata
     environment:
