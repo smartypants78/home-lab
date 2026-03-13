@@ -11,3 +11,6 @@ services:
       - /media/external2/audiobooks:/media          # Your audiobook library
       - ./pgdata:/var/lib/postgresql/data
       - ./redis:/var/lib/redis
+    environment:
+      PUID: 1000                      
+      PGID: 1000   
