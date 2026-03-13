@@ -1,3 +1,4 @@
+docker compose -f ./readmeabook/docker-compose.yml down
 docker compose -f ./readarr/docker-compose.yml down
 docker compose -f ./lidarr/docker-compose.yml down
 docker compose -f ./sonarr/docker-compose.yml down

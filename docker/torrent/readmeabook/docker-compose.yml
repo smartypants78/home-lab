@@ -2,8 +2,6 @@ services:
   readmeabook:
     image: ghcr.io/kikootwo/readmeabook:latest
     container_name: readmeabook
-    ports:
-      - 3030:3030
     restart: unless-stopped
     volumes:
       - /srv/readmeabook/config:/app/config
