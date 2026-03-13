@@ -23,6 +23,3 @@ docker compose -f ./lidarr/docker-compose.yml up -d
 
 docker compose -f ./readarr/docker-compose.yml pull
 docker compose -f ./readarr/docker-compose.yml up -d
-
-#docker compose -f ./readmeabook/docker-compose.yml pull
-#docker compose -f ./readmeabook/docker-compose.yml up -d
