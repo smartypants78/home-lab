@@ -7,8 +7,6 @@ services:
     tty: true
     volumes:
       - ollama:/root/.ollama
-    environment:
-      - 'OLLAMA_API_KEY=148bb3b8e1914df7b1f016f7c0353ab2.0XADhxz52VI6TrV3fzWl2aTJ' 
     restart: unless-stopped
     deploy:
       resources:
