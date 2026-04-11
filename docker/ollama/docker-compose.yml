@@ -37,8 +37,7 @@ services:
     depends_on:
       - ollama
     environment:
-      - 'OLLAMA_BASE_URL=http://ollama:11434/api'
-    restart: unless-stopped
+      - 'OLLAMA_BASE_URL=http://ollama:11434/    restart: unless-stopped
 
 volumes:
   ollama: {}
