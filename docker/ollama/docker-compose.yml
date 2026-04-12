@@ -17,7 +17,7 @@ services:
               capabilities: [gpu]
 
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main
+    image: ghcr.io/open-webui/open-webui:cuda
     container_name: open-webui
     ports: ["3000:8080"]
     extra_hosts:
@@ -29,6 +29,13 @@ services:
     environment:
       - 'OLLAMA_BASE_URL=http://ollama:11434/' 
     restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all 
+              capabilities: [gpu]
 
 volumes:
   ollama: {}
