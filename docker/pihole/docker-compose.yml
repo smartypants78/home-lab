@@ -1,0 +1,22 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    # Pi-hole requires host ports 53 for handling network DNS requests
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp" # Maps Pi-hole admin panel to 8080 to prevent Nextcloud conflict
+    environment:
+      TZ: 'Europe/London' # Change to your local timezone
+      WEBPASSWORD: 'eCigh1ca-Uy1eifee-Bo4veeda' # Set your admin dashboard password
+      FTLCONF_LOCAL_IPV4: '192.168.68.63' # Set to your server's static local IP
+    # Volumes ensure your blocklists and local DNS settings survive container restarts
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    # Recommended to prevent container loop issues if your host DNS changes
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    restart: unless-stopped
