@@ -3,7 +3,6 @@ services:
     container_name: pihole
     image: pihole/pihole:latest
     # Pi-hole requires host ports 53 for handling network DNS requests
-    network_mode: "host"
     ports:
       - "53:53/tcp"
       - "53:53/udp"
