@@ -17,6 +17,6 @@ services:
       - './etc-dnsmasq.d:/etc/dnsmasq.d'
     # Recommended to prevent container loop issues if your host DNS changes
     dns:
-      - 127.0.0.1
       - 1.1.1.1
+      - 1.0.0.1
     restart: unless-stopped
