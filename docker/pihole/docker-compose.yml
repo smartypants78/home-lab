@@ -9,7 +9,6 @@ services:
       - "8080:80/tcp" # Maps Pi-hole admin panel to 8080 to prevent Nextcloud conflict
     environment:
       TZ: 'Europe/London' # Change to your local timezone
-      WEBPASSWORD: 'Uy1eifee' # Set your admin dashboard password
       FTLCONF_LOCAL_IPV4: '192.168.68.63' # Set to your server's static local IP
     # Volumes ensure your blocklists and local DNS settings survive container restarts
     volumes:
