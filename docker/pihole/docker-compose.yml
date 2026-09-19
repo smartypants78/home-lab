@@ -10,7 +10,6 @@ services:
     environment:
       TZ: ${TZ}
       FTLCONF_webserver_api_password: ${PIHOLE_PASSWORD}
-      #FTLCONF_LOCAL_IPV4: ${LOCAL_IPV4}
     # Volumes ensure your blocklists and local DNS settings survive container restarts
     volumes:
       - './etc-pihole:/etc/pihole'
