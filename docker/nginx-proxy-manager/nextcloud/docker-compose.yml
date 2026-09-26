@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - /srv/nextcloud/mysql:/var/lib/mysql:Z
+      - /srv/nextcloud/mysql-conf/my.cnf:/etc/mysql/conf.d/my.cnf:ro
     environment:
       - MYSQL_ROOT_PASSWORD=ahx1Tho2
       - MARIADB_AUTO_UPGRADE=1
@@ -25,7 +26,7 @@ services:
     networks:
       - nginx-proxy-manager
 
-  nextclound-app:
+  nextcloud-app:
     image: nextcloud:apache
     container_name: nextcloud-app
     restart: unless-stopped
