@@ -38,8 +38,6 @@ services:
       ollama:
         condition: service_healthy
 
-    
-
 volumes:
   ollama:
   open-webui:
