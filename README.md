@@ -106,12 +106,16 @@ cd docker/nginx-proxy-manager
 
 ## Automation Scripts
 
-Each service directory includes automation scripts:
-- `start.sh`: Start the service(s)
-- `stop.sh`: Stop the service(s) 
-- `start-pull.sh`: Pull latest images and start the service(s)
+Not all service directories include automation scripts. The following services have automation scripts:
 
-These scripts are particularly useful for multi-container setups that have dependencies.
+### Services with automation scripts:
+- **nginx-proxy-manager**: Includes `start.sh`, `stop.sh`, and `start-pull.sh`
+- **torrent/**: Contains orchestration scripts to start multiple torrent tools together
+
+### Services without automation scripts:
+- Most individual services (jellyfin, immich, portainer, audiobookshelf, seerr, mysterium, heimdall, pihole, netdata) are meant to be started individually with standard `docker-compose up -d` commands
+
+The automation scripts are particularly useful for multi-container setups that have dependencies or need coordinated startup.
 
 ## Troubleshooting
 
