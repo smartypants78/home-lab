@@ -8,6 +8,8 @@ services:
     tty: true
     volumes:
       - ollama:/root/.ollama
+    networks:
+      - ai-network
     restart: unless-stopped
     deploy:
       resources:
@@ -31,13 +33,39 @@ services:
       - "3000:8080"
     volumes:
       - open-webui:/app/backend/data
+    networks:
+      - ai-network
     environment:
       OLLAMA_BASE_URL: http://ollama:11434
+      ENABLE_WEB_SEARCH: "True"
+      WEB_SEARCH_ENGINE: "searxng"
+      SEARXNG_QUERY_URL: "http://searxng:8080/search?q=<query>"
     restart: unless-stopped
     depends_on:
       ollama:
         condition: service_healthy
+      searxng:
+        condition: service_started
+
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./searxng:/etc/searxng
+    networks:
+      - ai-network
+    environment:
+      - BASE_URL=http://searxng:8080/
 
 volumes:
   ollama:
   open-webui:
+  searxng:
+
+networks:
+  ai-network:
+    name: ai-network
+    driver: bridge
