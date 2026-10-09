@@ -3,3 +3,5 @@ docker/jellyfin-gpu/srv/cache/*
 docker/jellyfin-gpu/srv/config/*
 
 !.keep
+
+.vscode/*
