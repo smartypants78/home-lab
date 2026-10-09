@@ -24,13 +24,12 @@ def search(query: str):
     data = r.json()
 
     return {
-        "query": query,
         "results": [
             {
-                "title": r.get("title"),
-                "url": r.get("url"),
-                "content": r.get("content")
+                "title": r["title"],
+                "url": r["url"],
+                "content": r["content"]
             }
-            for r in data.get("results", [])[:10]
+            for r in result["results"][:5]
         ]
     }
