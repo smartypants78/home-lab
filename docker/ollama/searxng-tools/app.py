@@ -6,7 +6,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
-@app.get("/search")
+@app.get(
+    "/search",
+    operation_id="web_search",
+    summary="Search the web"
+)
 def search(query: str):
     r = requests.get(
         "http://searxng:8080/search",
