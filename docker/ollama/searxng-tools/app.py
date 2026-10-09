@@ -9,10 +9,10 @@ app = FastAPI(
 @app.get(
     "/search",
     operation_id="web_search",
-    summary="Search the web"
+    summary="Search the web using SearXNG"
 )
 def search(query: str):
-    r = requests.get(
+    response = requests.get(
         "http://searxng:8080/search",
         params={
             "q": query,
@@ -21,15 +21,16 @@ def search(query: str):
         timeout=30
     )
 
-    data = r.json()
+    result = response.json()
 
     return {
+        "query": query,
         "results": [
             {
-                "title": r["title"],
-                "url": r["url"],
-                "content": r["content"]
+                "title": item.get("title"),
+                "url": item.get("url"),
+                "content": item.get("content")
             }
-            for r in result["results"][:5]
+            for item in result.get("results", [])[:5]
         ]
     }
