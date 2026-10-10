@@ -4,7 +4,6 @@ services:
     container_name: ollama
     ports: 
       - "11434:11434"
-    pull_policy: always
     tty: true
     volumes:
       - ollama:/root/.ollama
